@@ -1,0 +1,26 @@
+/* Offset the page content to account for the fixed header (64px height) */
+.page-sidenav-container {
+  /* let the container fill the app-content area (app-content already offsets for the header) */
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure sidenav content fills the adjusted height */
+.page-sidenav-container .mat-sidenav-content {
+  /* The main scrolling area for products */
+  height: 100%;
+  overflow: auto;
+  padding-top: 20px; /* app-content already has top padding for the fixed header */
+}
+
+/* Ensure the sidenav content is pushed below the fixed header */
+.page-sidenav-container .mat-sidenav {
+  /* keep sidenav content aligned with app-content (no extra top offset) */
+  box-sizing: border-box;
+  overflow-y: auto; /* allow categories to scroll if they exceed height */
+}
+
+/* Ensure mat-sidenav-container fills the available space inside the app content */
+.page-sidenav-container {
+  display: block;
+}

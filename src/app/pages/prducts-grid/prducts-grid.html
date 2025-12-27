@@ -1,0 +1,38 @@
+<mat-sidenav-container class="page-sidenav-container">
+  <mat-sidenav mode="side" opened="true">
+    <div class="p-6">
+      <h2 class="text-lg text-gray-900">Categories</h2>
+
+      <mat-nav-list>
+        <div *ngFor="let cat of categories(); track: cat">
+          <mat-list-item
+            [activated]="cat === category()"
+            [routerLink]="['/products', cat]"
+            class="my-2"
+          >
+            <span
+              matListItemTitle
+              class="font-medium"
+              [class]="cat === category() ? '!text-white' : null"
+            >
+              {{ cat | titlecase }}
+            </span>
+          </mat-list-item>
+        </div>
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="bg-gray-100 p-6 h-full">
+    <h1 class="text-2xl font-bold text-gray-900 mb-1">{{ category() }}</h1>
+    <p class="text-base text-gray-600 mb-6">{{ store.filteredProducts().length }} products</p>
+    <div class="responsive-grid">
+      <div *ngFor="let product of store.filteredProducts(); trackBy: trackByProductId">
+        <app-product-card [product]="product" (addToCartClicked)="addToCart()">
+          <app-toggle-wishlist-button class="absolute! z-10 top-3 right-3" [product]="product" />
+        </app-product-card>
+        <!--$event-->
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

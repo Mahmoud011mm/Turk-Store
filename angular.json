@@ -22,6 +22,8 @@
               }
             ],
             "styles": [
+              "@ngxpert/hot-toast/styles.css",
+              "src/custom-theme.scss",
               "src/styles.css"
             ]
           },

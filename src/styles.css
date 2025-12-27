@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+/* Ensure the root and body fill the viewport and prevent the page-level scrollbar.
+	 All scrolling should happen inside the app content (e.g. mat-sidenav-content). */
+html,
+body,
+app-root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  overflow: hidden; /* prevent outer page scrollbar */
+}

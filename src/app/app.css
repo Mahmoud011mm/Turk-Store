@@ -1,0 +1,18 @@
+.app-content {
+  /* Occupy remaining space under the fixed header and be the only scrolling container */
+  height: calc(100% - 64px);
+  overflow: auto;
+  padding-top: 64px;
+  box-sizing: border-box;
+}
+
+.top-header {
+  z-index: 1000;
+}
+
+/* Make the app root a column flex so header + content layout is stable */
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
