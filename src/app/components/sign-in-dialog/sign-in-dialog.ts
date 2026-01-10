@@ -56,12 +56,12 @@ export class SignInDialog {
   }
 
   openSignUpDialog() {
-    this.dialogRef.close()
+    this.dialogRef.close();
     this.matDialog.open(SignUpDialog, {
       disableClose: true,
       data: {
-        checkout: this.data?.checkout
-      }
-    })
+        checkout: this.data?.checkout,
+      },
+    });
   }
 }

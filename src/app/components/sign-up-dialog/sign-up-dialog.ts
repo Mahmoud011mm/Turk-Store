@@ -25,11 +25,10 @@ import { SignInDialog } from '../sign-in-dialog/sign-in-dialog';
   styleUrl: './sign-up-dialog.css',
 })
 export class SignUpDialog {
- 
   store = inject(EcommerceStor);
   dialogRef = inject(MatDialogRef);
   data = inject<{ checkout: boolean }>(MAT_DIALOG_DATA);
-  matDialog = inject(MatDialog)
+  matDialog = inject(MatDialog);
 
   fb = inject(NonNullableFormBuilder);
 
@@ -38,23 +37,22 @@ export class SignUpDialog {
     email: ['medo@gmail.com', Validators.required],
     password: ['test123', Validators.required],
     confirmPassword: ['test123', Validators.required],
-
   });
 
   signUp() {
-    if(!this.signUpForm.valid) {
+    if (!this.signUpForm.valid) {
       this.signUpForm.markAllAsTouched();
       return;
     }
 
-    const {name, email, password} = this.signUpForm.value;
+    const { name, email, password } = this.signUpForm.value;
 
     this.store.signUp({
       name,
       email,
       password,
       dialogId: this.dialogRef.id,
-      checkout: this.data?.checkout
+      checkout: this.data?.checkout,
     } as signUpParams);
   }
 
@@ -63,9 +61,8 @@ export class SignUpDialog {
     this.matDialog.open(SignInDialog, {
       disableClose: true,
       data: {
-        checkout: this.data?.checkout
-      }
-    })
+        checkout: this.data?.checkout,
+      },
+    });
   }
-
 }
